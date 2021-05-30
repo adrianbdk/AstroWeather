@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AstroWeather</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="full_location">%1$s / %2$s</string>
+    <string name="latitude">0.0</string>
+    <string name="longitude">0.0</string>
+    <string name="long_key">long_key</string>
+    <string name="lat_key">lat_key</string>
+    <string name="interval_key">interval_key</string>
+    <string name="default_interval">300</string>
+    <string name="azimuth">%1$s / %2$s</string>
+    <string name="default_value">0.0</string>
+    <string name="default_interval_value">10</string>
+    <string name="time_interval_key">time_interval_key</string>
+    <string name="sun">Sun</string>
+    <string name="moon">Moon</string>
+</resources>

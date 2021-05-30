@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_moon">
+
+    <LinearLayout android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:gravity="center">
+            <TextView android:id="@+id/current_date"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="25sp"
+                      android:text="9 May 2021"
+                      android:textColor="#FFD5D5D5"
+                      android:paddingTop="10dp"
+                      android:layout_gravity="center"
+                      android:layout_centerHorizontal="true"/>
+            <TextClock android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:paddingTop="10dp"
+                       android:id="@+id/textclock"
+                       android:format12Hour="hh:mm:ss"
+                       android:textSize="25sp"
+                       android:textColor="#FFD5D5D5"
+                       android:text="22:22:22"/>
+        </LinearLayout>
+        <Space android:layout_width="wrap_content" android:layout_height="25dp"/>
+        <ImageView android:layout_width="200dp"
+                   android:layout_height="0dp"
+                   android:layout_weight="1"
+                   android:adjustViewBounds="true"
+                   android:scaleType="fitCenter"
+                   android:layout_gravity="center"
+                   android:src="@drawable/ic_moon"/>
+        <Space android:layout_width="wrap_content" android:layout_height="10dp"/>
+    </LinearLayout>
+
+    <TableLayout android:id="@+id/detailsContainer" android:layout_width="match_parent"
+                 android:layout_height="0dp" android:orientation="vertical"
+                 android:layout_weight="2"
+                 android:padding="15dp"
+                 android:gravity="bottom">
+        <TableRow android:layout_width="match_parent" android:layout_height="0dp"
+                  android:orientation="horizontal"
+                  android:layout_weight="1"
+                  android:gravity="center">
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:padding="8dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="#FFD5D5D5"
+                          android:textSize="23dp"
+                          android:text="Moonrise"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:src="@drawable/ic_moonrise"
+                           android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+
+                <TextView android:id="@+id/moonrise"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="#FFD5D5D5"
+                          android:textSize="21dp"
+                          android:text="06:40 AM"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+            <Space android:layout_width="25dp"
+                   android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="8dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="23dp"
+                          android:text="Moonset"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:src="@drawable/ic_moonset"
+                           android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+                <TextView android:id="@+id/moonset" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:textSize="21dp"
+                          android:text="06:40 AM"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+        </TableRow>
+        <Space android:layout_width="wrap_content"
+               android:layout_height="25dp"/>
+        <TableRow android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:gravity="center">
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:gravity="center" android:padding="8dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="23dp"
+                          android:text="New moon"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:src="@drawable/ic_full_moon" android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+
+                <TextView android:id="@+id/new_moon"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="21dp"
+                          android:text="06:40 AM"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+            <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:padding="8dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="23dp"
+                          android:text="Full moon"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:src="@drawable/ic_full_moon" android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+                <TextView android:id="@+id/full_moon" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:textSize="21dp"
+                          android:text="06:40 AM"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+        </TableRow>
+
+        <Space android:layout_width="wrap_content"
+               android:layout_height="25dp"/>
+
+        <TableRow android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:gravity="center">
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:padding="8dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="23dp"
+                          android:text="Phase"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:src="@drawable/ic_moon_phase" android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+
+                <TextView android:id="@+id/phase"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="21dp"
+                          android:text="06:40 AM"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+            <Space android:layout_width="10dp"
+                   android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="8dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="23dp"
+                          android:text="Synodic Day"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="40dp"
+                           android:layout_height="40dp"
+                           android:src="@drawable/ic_calendar" android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+                <TextView android:id="@+id/day" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:textSize="21dp"
+                          android:text="06:40 AM"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
+                 android:layout_height="wrap_content" android:layout_centerInParent="true"
+                 android:visibility="gone"/>
+
+    <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
+              android:layout_height="wrap_content" android:layout_centerInParent="true"
+              android:visibility="gone" android:text="Something went wrong"/>
+
+
+</LinearLayout>

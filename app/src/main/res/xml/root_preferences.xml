@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+            android:title="Coordinates">
+
+        <EditTextPreference
+                android:inputType="numberDecimal"
+                app:defaultValue="@string/default_value"
+                app:key="@string/lat_key"
+                app:title="Latitude"
+                app:useSimpleSummaryProvider="true"
+                android:dialogLayout="@layout/preference_edit_text"/>
+
+        <EditTextPreference
+                app:defaultValue="@string/default_value"
+                app:key="@string/long_key"
+                app:title="Longitude"
+                app:useSimpleSummaryProvider="true"
+                android:dialogLayout="@layout/preference_edit_text"
+                />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Refresh">
+
+        <ListPreference
+                app:defaultValue="@string/default_interval_value"
+                app:entries="@array/time_entries"
+                app:entryValues="@array/time_values"
+                app:key="@string/interval_key"
+                app:title="Refreshing interval"
+                app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

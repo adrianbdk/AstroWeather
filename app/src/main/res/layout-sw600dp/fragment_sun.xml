@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg_sun"
+              android:gravity="center">
+
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:gravity="center">
+        <TextView android:id="@+id/current_date"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="25sp"
+                  android:text="9 May 2021"
+                  android:textColor="#80000000"
+                  android:paddingTop="10dp"
+                  android:layout_gravity="center"
+                  android:layout_centerHorizontal="true"/>
+        <TextClock android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:paddingTop="10dp"
+                   android:id="@+id/textclock"
+                   android:format12Hour="hh:mm:ss"
+                   android:textSize="25sp"
+                   android:textColor="#80000000"
+                   android:text="22:22:22"/>
+    </LinearLayout>
+
+    <TableLayout android:id="@+id/detailsContainer"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="vertical"
+                 android:padding="15dp"
+                 android:gravity="bottom">
+        <TableRow android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:orientation="horizontal"
+                  android:layout_weight="1"
+                  android:gravity="center">
+            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="8dp"
+                          android:background="#4DADADAD">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="23dp"
+                          android:text="Sunrise"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="45dp" android:layout_height="45dp"
+                           android:src="@drawable/ic_sunrise"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:id="@+id/sunrise"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textSize="21dp"
+                              android:text="06:40 AM"
+                              android:textColor="#80000000"/>
+                    <Space android:layout_width="15dp" android:layout_height="0dp"/>
+                    <TextView android:id="@+id/sunrise_azimuth"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textSize="21dp"
+                              android:text="Azimuth"
+                              android:textColor="#80000000"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space android:layout_width="25dp" android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="8dp"
+                          android:background="#4DADADAD">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="23dp"
+                          android:text="Sunset"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="45dp" android:layout_height="45dp"
+                           android:src="@drawable/ic_sunset"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:id="@+id/sunset"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textSize="21dp"
+                              android:text="06:40 AM"
+                              android:textColor="#80000000"/>
+                    <Space android:layout_width="15dp" android:layout_height="0dp"/>
+                    <TextView android:id="@+id/sunset_azimuth"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textSize="21dp"
+                              android:text="Azimuth"
+                              android:textColor="#80000000"/>
+                </LinearLayout>
+            </LinearLayout>
+        </TableRow>
+
+        <Space android:layout_width="0dp" android:layout_height="10dp"/>
+
+        <TableRow android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:orientation="horizontal"
+                  android:layout_weight="1"
+                  android:gravity="center">
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:padding="8dp"
+                          android:background="#4DADADAD">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:textSize="23dp" android:text="Civil dawn"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="45dp" android:layout_height="45dp"
+                           android:src="@drawable/ic_sunrise"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+
+                <TextView android:id="@+id/civil_dawn" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:textSize="21dp"
+                          android:text="06:40 AM"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+            <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:padding="8dp"
+                          android:background="#4DADADAD">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:textSize="23dp" android:text="Civil twilight"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="45dp" android:layout_height="45dp"
+                           android:src="@drawable/ic_sunrise"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+                <TextView android:id="@+id/civil_twilight" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:textSize="21dp"
+                          android:text="06:40 AM"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+        </TableRow>
+
+        <Space android:layout_width="0dp" android:layout_height="10dp"/>
+
+        <TableRow android:layout_width="match_parent" android:layout_height="0dp"
+                  android:orientation="horizontal"
+                  android:layout_weight="1"
+                  android:gravity="center">
+            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="8dp"
+                          android:background="#4DADADAD">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:textSize="23dp" android:text="Latitude"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="35dp" android:layout_height="35dp"
+                           android:src="@drawable/ic_compass"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+
+                <TextView android:id="@+id/latitude"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="21dp"
+                          android:text="@string/latitude"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+            <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="8dp"
+                          android:background="#4DADADAD">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                          android:textSize="23dp" android:text="Longtitude"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="35dp" android:layout_height="35dp"
+                           android:src="@drawable/ic_compass"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+                <TextView android:id="@+id/longitude" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:textSize="21dp"
+                          android:text="@string/longitude"
+                          android:textColor="#80000000"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
+                 android:layout_height="wrap_content" android:layout_centerInParent="true"
+                 android:visibility="gone"/>
+
+    <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
+              android:layout_height="wrap_content" android:layout_centerInParent="true"
+              android:visibility="gone" android:text="Something went wrong"/>
+
+
+</LinearLayout>
