@@ -14,4 +14,7 @@
     <string name="time_interval_key">time_interval_key</string>
     <string name="sun">Sun</string>
     <string name="moon">Moon</string>
+    <string name="openWeatherMapAPI">83a1fcff495a72f6917c09b601bb1dde</string>
+    <string name="city_key">city_key</string>
+    <string name="city">"Lodz"</string>
 </resources>

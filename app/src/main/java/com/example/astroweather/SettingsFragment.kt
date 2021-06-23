@@ -6,6 +6,7 @@ import android.text.InputType
 import android.util.Log
 import android.widget.Toast
 import androidx.preference.EditTextPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 
@@ -13,6 +14,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     private var latitude: EditTextPreference? = null
     private var longitude: EditTextPreference? = null
+    private var cityName: Preference? = null
     private var listener: SharedPreferences.OnSharedPreferenceChangeListener? = null
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -56,6 +58,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     Toast.makeText(activity, "You've entered wrong number ", Toast.LENGTH_LONG).show()
                 }
             }
+
         }
 
         PreferenceManager.getDefaultSharedPreferences(context)

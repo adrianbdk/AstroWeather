@@ -9,6 +9,7 @@ import com.astrocalculator.AstroDateTime
 
 class AstroData {
     var astroCalculator: AstroCalculator
+
     private fun setDate(): AstroDateTime {
         val currentDate = Calendar.getInstance()
         val day = currentDate[Calendar.DAY_OF_MONTH]

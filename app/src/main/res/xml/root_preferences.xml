@@ -20,6 +20,8 @@
                 android:dialogLayout="@layout/preference_edit_text"
                 />
 
+
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="Refresh">

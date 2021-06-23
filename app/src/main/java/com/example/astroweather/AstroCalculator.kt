@@ -1,19 +1,27 @@
 package com.example.astroweather
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.preference.PreferenceManager
 import androidx.viewpager2.widget.ViewPager2
+import com.example.astroweather.API.APIEndpoints
+import com.example.astroweather.API.RetrofitBuilder
+import com.example.astroweather.json_model.Root
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class AstroCalculator : AppCompatActivity() {
-
     private lateinit var astroData: AstroData
     private var handler: Handler? = Handler(Looper.getMainLooper())
     private var handlerTask: Runnable? = null
@@ -28,6 +36,7 @@ class AstroCalculator : AppCompatActivity() {
         this.supportActionBar?.hide()
         fragmentsList.add("Sun")
         fragmentsList.add("Moon")
+        fragmentsList.add("Weather")
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         val interval = sharedPreferences.getString(
             getString(R.string.interval_key),
@@ -53,7 +62,6 @@ class AstroCalculator : AppCompatActivity() {
             updateFragmentsData()
             refreshData(interval)
         }
-
     }
 
     override fun onStop() {
@@ -74,6 +82,7 @@ class AstroCalculator : AppCompatActivity() {
     private fun updateFragmentsData() {
         sunFragmentPage.astroDataSetter(astroData)
         moonFragmentPage.astroDataSetter(astroData)
+        getWeatherData()
     }
 
     private fun refreshData(seconds: Long) {
@@ -99,5 +108,39 @@ class AstroCalculator : AppCompatActivity() {
         }
         ft.commit()
     }
+    private fun getWeatherData(){
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+        val latitude: String = sharedPreferences.getString(
+            getString(R.string.lat_key),
+            getString(R.string.latitude)
+        ).toString()
+        val longitude: String = sharedPreferences.getString(
+            getString(R.string.long_key),
+            getString(R.string.longitude)
+        ).toString()
+
+        val service = RetrofitBuilder.create(APIEndpoints::class.java)
+        val call = service.getWeather(
+            latitude,
+            longitude,
+            "hour,minutely,alerts",
+            "metric",
+            getString(R.string.openWeatherMapAPI))
+        call.enqueue(object: Callback<Root> {
+            override fun onResponse(call: Call<Root>?, response: Response<Root>?) {
+                val gson = Gson()
+                val jsonToString = gson.toJson(response?.body())
+                applicationContext.getSharedPreferences("sharedPreferences",
+                    Context.MODE_PRIVATE)
+                    .edit().putString("WEATHER_DATA", jsonToString).apply()
+            }
+
+            override fun onFailure(call: Call<Root>?, t: Throwable?) {
+                Toast.makeText(this@AstroCalculator, "${t?.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+
 }
 

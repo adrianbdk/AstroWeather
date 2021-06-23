@@ -7,11 +7,12 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapte
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> SunPage()
-            else -> MoonPage()
+            1 -> MoonPage()
+            else -> WeatherPage()
         }
     }
 
     override fun getItemCount(): Int {
-        return 2
+        return 3
     }
 }
