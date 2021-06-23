@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg_settings"
+              android:orientation="vertical">
+
+    <TextView
+            android:text="Weather Settings"
+            android:textSize="50sp"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="40dp"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TableLayout
+                android:id="@+id/table_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="40dp">
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="10dp">
+
+                <TextView
+                        android:text="Latitude"
+                        android:textColor="@color/dimmedTextSettings"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_weight="1"/>/>
+                <TextView
+                        android:text="Longitude"
+                        android:textColor="@color/dimmedTextSettings"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_weight="1"/>/>
+            </TableRow>
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp">
+
+                <TextView
+                        android:id="@+id/latitude_setting"
+                        android:text="@string/latitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:layout_weight="1"
+                        android:textSize="16sp"/>
+                <TextView
+                        android:id="@+id/longitude_setting"
+                        android:text="@string/longitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:layout_weight="1"
+                        android:textSize="16sp"/>
+            </TableRow>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="10dp">
+
+                <TextView
+                        android:text="Found city"
+                        android:textColor="@color/dimmedTextSettings"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_weight="1"/>
+
+            </TableRow>
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content">
+
+                <TextView
+                        android:id="@+id/city_name_settings"
+                        android:text="City name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:layout_weight="1"
+                        android:textSize="16sp"/>
+                <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:inputType="text"
+                        android:background="@drawable/bg_spinner"
+                        android:textColor="@color/colorDay"
+                        android:textSize="16sp"
+                        android:paddingHorizontal="10dp"
+                        android:ems="10"
+                        android:id="@+id/et_city_name"
+                        android:autofillHints="" tools:ignore="LabelFor"/>
+            </TableRow>
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="10dp">
+
+
+                <Button
+                        android:id="@+id/button_set_city"
+                        android:text="Set city"
+                        android:layout_width="0dp"
+                        android:background="@drawable/bg_spinner"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="25dp" tools:ignore="ButtonStyle"/>
+
+            </TableRow>
+
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="10dp">
+
+            </TableRow>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="10dp">
+
+                <TextView
+                        android:text="Favorite cities"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/dimmedTextSettings"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_weight="1"/>
+
+            </TableRow>
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="5dp">
+
+                <TextView
+                        android:text="@string/saved_cities"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp"
+                        android:layout_weight="1"/>
+
+                <Spinner
+                        android:id="@+id/spinner_fav_cities"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:theme="@style/spinnerStyle"
+                        android:background="@drawable/bg_spinner"
+                        android:popupBackground="@drawable/bg_spinner"/>
+            </TableRow>
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="10dp">
+
+
+                <Button
+                        android:id="@+id/button_add_to_fav"
+                        android:text="Add city"
+                        android:layout_width="0dp"
+                        android:background="@drawable/bg_spinner"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="20dp" tools:ignore="ButtonStyle"/>
+
+                <Button
+                        android:id="@+id/button_remove_from_fav"
+                        android:text="Remove city"
+                        android:layout_width="0dp"
+                        android:background="@drawable/bg_spinner"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1" tools:ignore="ButtonStyle"/>
+            </TableRow>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="20dp"
+            >
+
+                <TextView
+                        android:text="@string/temperature_unit"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp"
+                        android:layout_weight="1"/>
+
+                <ToggleButton
+                        android:id="@+id/toggleButton"
+                        android:layout_width="0dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bg_spinner"
+                        android:textSize="12sp"
+                        android:textOff="Celsius"
+                        android:textOn="Fahrenheit"
+                        android:textAlignment="center"
+                />
+            </TableRow>
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+
+                <TextView
+                        android:text="@string/refresh_rate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp"
+                        android:layout_weight="1"/>
+                <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:theme="@style/spinnerStyle"
+                        android:background="@drawable/bg_spinner"
+                        android:popupBackground="@drawable/bg_spinner"
+                        android:entries="@array/time_entries"/>
+            </TableRow>
+
+
+            <TableRow
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="20dp"
+                    >
+
+                <Button
+                        android:id="@+id/button_refresh"
+                        android:text="Save"
+                        android:layout_width="0dp"
+                        android:background="@drawable/bg_spinner"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>

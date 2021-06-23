@@ -1,6 +1,5 @@
 package com.example.astroweather
 
-import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -34,6 +33,7 @@ class AstroCalculator : AppCompatActivity() {
         setContentView(R.layout.activity_astro)
         astroData = AstroData()
         this.supportActionBar?.hide()
+        fragmentsList.add("Settings")
         fragmentsList.add("Sun")
         fragmentsList.add("Moon")
         fragmentsList.add("Weather")
@@ -79,7 +79,7 @@ class AstroCalculator : AppCompatActivity() {
         clearHandler()
     }
 
-    private fun updateFragmentsData() {
+    fun updateFragmentsData() {
         sunFragmentPage.astroDataSetter(astroData)
         moonFragmentPage.astroDataSetter(astroData)
         getWeatherData()
@@ -99,7 +99,7 @@ class AstroCalculator : AppCompatActivity() {
         handlerTask?.let { handler!!.removeCallbacksAndMessages(it) }
     }
 
-    private fun updateFragments() {
+    fun updateFragments() {
         updateFragmentsData()
         val ft: FragmentTransaction = supportFragmentManager.beginTransaction()
         for (fragment in supportFragmentManager.fragments) {
@@ -109,15 +109,8 @@ class AstroCalculator : AppCompatActivity() {
         ft.commit()
     }
     private fun getWeatherData(){
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val latitude: String = sharedPreferences.getString(
-            getString(R.string.lat_key),
-            getString(R.string.latitude)
-        ).toString()
-        val longitude: String = sharedPreferences.getString(
-            getString(R.string.long_key),
-            getString(R.string.longitude)
-        ).toString()
+        val latitude: String = SharedPreferencesData.getString(this, getString(R.string.lat_key)).toString()
+        val longitude: String = SharedPreferencesData.getString(this, getString(R.string.long_key)).toString()
 
         val service = RetrofitBuilder.create(APIEndpoints::class.java)
         val call = service.getWeather(
@@ -130,9 +123,7 @@ class AstroCalculator : AppCompatActivity() {
             override fun onResponse(call: Call<Root>?, response: Response<Root>?) {
                 val gson = Gson()
                 val jsonToString = gson.toJson(response?.body())
-                applicationContext.getSharedPreferences("sharedPreferences",
-                    Context.MODE_PRIVATE)
-                    .edit().putString("WEATHER_DATA", jsonToString).apply()
+                SharedPreferencesData.saveString(application, "WEATHER_INFO", jsonToString)
             }
 
             override fun onFailure(call: Call<Root>?, t: Throwable?) {

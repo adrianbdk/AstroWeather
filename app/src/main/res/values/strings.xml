@@ -17,4 +17,36 @@
     <string name="openWeatherMapAPI">83a1fcff495a72f6917c09b601bb1dde</string>
     <string name="city_key">city_key</string>
     <string name="city">"Lodz"</string>
+
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="astro_weather">ASTRO WEATHER</string>
+    <string name="refresh_rate">Refresh rate</string>
+    <string name="temperature_unit">Temperature unit</string>
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="coords_desc">Set coordinates for weather forecast</string>
+    <string name="set_coordinates">Set coordinates</string>
+    <string name="city_desc">Set city for weather forecast</string>
+    <string name="set_city">Set city</string>
+    <string name="save_city">Save city</string>
+    <string name="choose_saved_city">Choose saved city</string>
+    <string name="saved_cities">Saved cities</string>
+    <string name="remove_city">Remove city</string>
+    <string name="refresh_weather_data">Refresh weather data</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="max_temperature">Max temperature</string>
+    <string name="min_temperature">Min temperature</string>
+    <string name="feels_like">Feels like</string>
 </resources>

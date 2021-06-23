@@ -6,13 +6,14 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> SunPage()
-            1 -> MoonPage()
+            0 -> WeatherSettings()
+            1 -> SunPage()
+            2 -> MoonPage()
             else -> WeatherPage()
         }
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return 4
     }
 }

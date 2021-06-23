@@ -50,15 +50,9 @@ class SunPage : Fragment() {
     }
 
     private fun setAstroDataToTV(astroCalculator: AstroCalculator){
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
-        val latitude = sharedPreferences.getString(
-            getString(R.string.lat_key),
-            getString(R.string.latitude)
-        )
-        val longitude = sharedPreferences.getString(
-            getString(R.string.long_key),
-            getString(R.string.longitude)
-        )
+        val latitude = SharedPreferencesData.getString(context!!, getString(R.string.lat_key)).toString()
+        val longitude = SharedPreferencesData.getString(context!!, getString(R.string.long_key)).toString()
+
         view?.findViewById<TextView>(R.id.sunrise)?.text =
             astroData.getTimeToSting(astroCalculator.sunInfo.sunrise)
         view?.findViewById<TextView>(R.id.sunset)?.text =

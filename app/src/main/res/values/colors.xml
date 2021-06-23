@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#172329</color>
+    <color name="colorPrimaryDark">#10181C</color>
+    <color name="colorAccent">#5CC5E8</color>
+    <color name="colorDay">#4A73FC</color>
+    <color name="colorBackground">#F6F6F6</color>
+    <color name="colorNight">#2A4959</color>
+    <color name="colorDark">#172329</color>
+    <color name="colorDarker">#10181C</color>
+    <color name="colorDayText">#3B5867</color>
+    <color name="Yellow">#FDC61F</color>
+    <color name="dimmedTextSettings">#DEBBD4</color>
+    <color name="colorDimmed">#BF000000</color>
 </resources>

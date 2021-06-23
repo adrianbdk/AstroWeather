@@ -4,9 +4,9 @@ import android.content.Context
 
 class SharedPreferencesData {
     companion object {
-        private const val PREFERENCE = "sharedPreferences"
+        private const val PREFERENCE = "defaultSharedPreference"
 
-        fun save(context: Context, key: String?, value: String?) {
+        fun saveString(context: Context, key: String?, value: String?) {
             context.getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE).edit().putString(key, value).apply()
         }
 
