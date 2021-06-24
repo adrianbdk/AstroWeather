@@ -80,7 +80,6 @@ class WeatherSettings : Fragment() {
             val geocoder = Geocoder(activity, Locale.ENGLISH)
             Log.i("City name", cityName.text.toString())
             val address = geocoder.getFromLocationName(cityName.text.toString(), 10)
-
             var lat = BigDecimal(address[0].latitude)
             lat = lat.setScale(4, BigDecimal.ROUND_HALF_UP)
 
@@ -152,9 +151,7 @@ class WeatherSettings : Fragment() {
 
     private fun saveSharedPreferencesData() {
         activity?.let { SharedPreferencesData.saveString(it, getString(R.string.lat_key), latitudeSettings.text.toString())
-            Log.i("SharedPreferences wysyłanie danych", latitudeSettings.text.toString())}
         activity?.let { SharedPreferencesData.saveString(it, getString(R.string.long_key), longitudeSettings.text.toString())
-            Log.i("SharedPreferences wysyłanie danych", longitudeSettings.text.toString())}
         activity?.let { SharedPreferencesData.saveString(it, "CITY_NAME", cityName.text.toString()) }
         activity?.let { SharedPreferencesData.saveString(it, "FAVORITE_CITIES",java.lang.String.join(",", favoriteCities)) }
         val latitudevalue: String = getString(R.string.lat_key)

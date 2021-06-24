@@ -90,6 +90,7 @@ class AstroCalculator : AppCompatActivity() {
         handlerTask = Runnable {
             Log.i("isRefreshing", "refresh")
             updateFragments()
+
             handler!!.postDelayed(handlerTask!!, seconds * 1000)
         }
         handlerTask!!.run()
@@ -123,6 +124,7 @@ class AstroCalculator : AppCompatActivity() {
             override fun onResponse(call: Call<Root>?, response: Response<Root>?) {
                 val gson = Gson()
                 val jsonToString = gson.toJson(response?.body())
+                Log.i("jsonFromJsonfromgson", jsonToString)
                 SharedPreferencesData.saveString(application, "WEATHER_INFO", jsonToString)
             }
 

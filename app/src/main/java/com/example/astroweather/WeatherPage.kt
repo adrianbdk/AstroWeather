@@ -143,12 +143,10 @@ class WeatherPage : Fragment() {
 
     private fun loadSharedPreferences(): Root {
         val weatherInfoJson = activity?.let {
-            context?.getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
-                ?.getString("WEATHER_DATA", null)
+            SharedPreferencesData.getString(it,"WEATHER_INFO")
         }
         cityName?.text = activity?.let {
-            context?.getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE)
-                ?.getString("CITY_NAME", null)
+            SharedPreferencesData.getString(it,"CITY_NAME")
         }
         val gson = Gson()
         return gson.fromJson(weatherInfoJson, Root::class.java)
