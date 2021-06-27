@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg_moon">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:gravity="center">
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:gravity="center">
+            <TextView android:id="@+id/location_details" android:layout_width="wrap_content"
+                      android:layout_height="wrap_content" android:textSize="24dp"
+                      android:text="Lodz, PL"
+                      android:textColor="#FFD5D5D5"/>
+        </LinearLayout>
+        <Space android:layout_width="20dp" android:layout_height="wrap_content"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="18dp"
+                  android:text="Weather details"
+                  android:textColor="#FFD5D5D5"/>
+    </LinearLayout>
+
+    <TableLayout android:id="@+id/detailsContainer" android:layout_width="match_parent"
+                 android:layout_height="0dp" android:orientation="vertical"
+                 android:layout_weight="3"
+                 android:padding="15dp"
+                 android:gravity="bottom">
+        <TableRow android:layout_width="match_parent" android:layout_height="0dp"
+                  android:orientation="horizontal"
+                  android:layout_weight="1"
+                  android:gravity="center">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="4dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textColor="#FFD5D5D5"
+                          android:textSize="18dp"
+                          android:text="Wind"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:src="@drawable/ic_wind"
+                           android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:id="@+id/wind_direction"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="#FFD5D5D5"
+                              android:textSize="14dp"
+                              android:text="Direction: "/>
+    <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
+                    <TextView android:id="@+id/wind_speed"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:textColor="#FFD5D5D5"
+                              android:textSize="14dp"
+                              android:text="Speed: "/>
+            </LinearLayout>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+            <Space android:layout_width="25dp" android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="4dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="18dp"
+                          android:text="Humidity"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:src="@drawable/ic_humidity"
+                           android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <TextView android:id="@+id/humidity" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:textSize="14dp"
+                          android:text="Humidity: "
+                          android:textColor="#FFD5D5D5"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent"
+                  android:layout_height="0dp"
+                  android:layout_weight="1"
+                  android:orientation="horizontal"
+                  android:gravity="center">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                          android:orientation="vertical" android:layout_weight="1"
+                          android:gravity="center" android:padding="8dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="18dp"
+                          android:text="Cloudiness"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:src="@drawable/ic_cloudy" android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+
+                <TextView android:id="@+id/cloudiness"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="14dp"
+                          android:text="Cloudiness"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+            <Space android:layout_width="10dp" android:layout_height="wrap_content"/>
+            <LinearLayout android:layout_width="0dp"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_weight="1"
+                          android:gravity="center"
+                          android:padding="8dp"
+                          android:background="#74404040">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:textSize="18dp"
+                          android:text="Visibility"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="5dp"/>
+                <ImageView android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:src="@drawable/ic_visibility" android:tint="#FFFFFF"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+                <TextView android:id="@+id/visibility" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:textSize="14dp"
+                          android:text="Visibility"
+                          android:textColor="#FFD5D5D5"/>
+                <Space android:layout_width="wrap_content" android:layout_height="2dp"/>
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+    <ProgressBar android:id="@+id/loader" android:layout_width="wrap_content"
+                 android:layout_height="wrap_content" android:layout_centerInParent="true"
+                 android:visibility="gone"/>
+
+    <TextView android:id="@+id/errorText" android:layout_width="wrap_content"
+              android:layout_height="wrap_content" android:layout_centerInParent="true"
+              android:visibility="gone" android:text="Something went wrong"/>
+
+
+</LinearLayout>

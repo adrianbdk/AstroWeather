@@ -14,7 +14,7 @@ class SharedPreferencesData {
             context.getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE).edit().putInt(key, value).apply()
         }
 
-        fun save(context: Context, key: String?, value: Boolean) {
+        fun saveBoolean(context: Context, key: String?, value: Boolean) {
             context.getSharedPreferences(PREFERENCE, Context.MODE_PRIVATE).edit().putBoolean(key, value).apply()
         }
 

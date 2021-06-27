@@ -2,19 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical">
 
-
-    <fragment class="com.example.astroweather.SunPage"
-            android:id="@+id/fragment_sun"
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="182dp"
+            tools:layout_editor_absoluteY="373dp">
+    </com.google.android.material.tabs.TabLayout>
 
-    <fragment class="com.example.astroweather.MoonPage"
-            android:id="@+id/fragment_moon"
+    <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_height="match_parent"
+    />
 
 </LinearLayout>

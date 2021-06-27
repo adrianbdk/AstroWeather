@@ -30,6 +30,7 @@ class SunPage : Fragment() {
             getString(R.string.long_key),
             getString(R.string.longitude)
         )
+
         astroData = AstroData()
         if (longitude != null && latitude != null) {
             astroData.updateLocation(latitude.toDouble(), longitude.toDouble())

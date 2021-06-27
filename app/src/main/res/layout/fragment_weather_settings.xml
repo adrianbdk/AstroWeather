@@ -177,7 +177,7 @@
                 <Spinner
                         android:id="@+id/spinner_fav_cities"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_weight="1"
                         android:textSize="16sp"
                         android:theme="@style/spinnerStyle"
@@ -245,36 +245,12 @@
                         android:textAlignment="center"
                 />
             </TableRow>
-            <TableRow
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent">
-
-                <TextView
-                        android:text="@string/refresh_rate"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="#ffffff"
-                        android:textSize="16sp"
-                        android:layout_weight="1"/>
-                <Spinner
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spinner"
-                        android:layout_weight="1"
-                        android:textSize="16sp"
-                        android:theme="@style/spinnerStyle"
-                        android:background="@drawable/bg_spinner"
-                        android:popupBackground="@drawable/bg_spinner"
-                        android:entries="@array/time_entries"/>
-            </TableRow>
-
 
             <TableRow
                     android:layout_height="match_parent"
                     android:layout_width="wrap_content"
                     android:layout_marginVertical="20dp"
                     >
-
                 <Button
                         android:id="@+id/button_refresh"
                         android:text="Save"

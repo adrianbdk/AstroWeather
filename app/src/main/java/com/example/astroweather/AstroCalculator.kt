@@ -26,7 +26,9 @@ class AstroCalculator : AppCompatActivity() {
     private var handlerTask: Runnable? = null
     private var sunFragmentPage = SunPage()
     private var moonFragmentPage = MoonPage()
+    private var weatherFragmentPage = WeatherPage()
     private val fragmentsList: MutableList<String> = ArrayList()
+    private var units: String = "metric"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,20 +39,14 @@ class AstroCalculator : AppCompatActivity() {
         fragmentsList.add("Sun")
         fragmentsList.add("Moon")
         fragmentsList.add("Weather")
+        fragmentsList.add("Details")
+        fragmentsList.add("Forecast")
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         val interval = sharedPreferences.getString(
             getString(R.string.interval_key),
             getString(R.string.default_interval)
         )!!.toLong()
 
-        if (resources.getBoolean(R.bool.isTab)) {
-            sunFragmentPage = supportFragmentManager.findFragmentById(R.id.fragment_sun) as SunPage
-            moonFragmentPage = supportFragmentManager.findFragmentById(R.id.fragment_moon) as MoonPage
-            updateFragmentsData()
-            refreshData(interval)
-            Log.i("Mobile/Tablet", "TABLET")
-        } else {
-            Log.i("Mobile/Tablet", "MOBILE")
 
             val tabLayout = findViewById<TabLayout>(R.id.tabs)
             val viewPager2 = findViewById<ViewPager2>(R.id.view_pager)
@@ -61,7 +57,7 @@ class AstroCalculator : AppCompatActivity() {
             ) { tab, position -> tab.text = fragmentsList[position] }.attach()
             updateFragmentsData()
             refreshData(interval)
-        }
+
     }
 
     override fun onStop() {
@@ -83,6 +79,8 @@ class AstroCalculator : AppCompatActivity() {
         sunFragmentPage.astroDataSetter(astroData)
         moonFragmentPage.astroDataSetter(astroData)
         getWeatherData()
+        units = SharedPreferencesData.getString(this, "UNITS").toString()
+        Log.i("UNITS", SharedPreferencesData.getString(this, "UNITS").toString())
     }
 
     private fun refreshData(seconds: Long) {
@@ -109,7 +107,7 @@ class AstroCalculator : AppCompatActivity() {
         }
         ft.commit()
     }
-    private fun getWeatherData(){
+    fun getWeatherData(){
         val latitude: String = SharedPreferencesData.getString(this, getString(R.string.lat_key)).toString()
         val longitude: String = SharedPreferencesData.getString(this, getString(R.string.long_key)).toString()
 
@@ -118,7 +116,7 @@ class AstroCalculator : AppCompatActivity() {
             latitude,
             longitude,
             "hour,minutely,alerts",
-            "metric",
+            units,
             getString(R.string.openWeatherMapAPI))
         call.enqueue(object: Callback<Root> {
             override fun onResponse(call: Call<Root>?, response: Response<Root>?) {

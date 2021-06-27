@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#0D9DE3">
+    <TextView
+            android:id="@+id/header_title"
+            android:text="Forecast for Lodz"
+            android:textSize="36sp"
+            android:textColor="#FFFF"
+            android:textAlignment="center"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="30dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_forecast"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+    />
+</LinearLayout>

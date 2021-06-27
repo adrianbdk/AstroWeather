@@ -9,11 +9,13 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapte
             0 -> WeatherSettings()
             1 -> SunPage()
             2 -> MoonPage()
-            else -> WeatherPage()
+            3 -> WeatherPage()
+            4 -> WeatherDetailsPage()
+            else -> ForecastPage()
         }
     }
 
     override fun getItemCount(): Int {
-        return 4
+        return 6
     }
 }

@@ -1,21 +1,16 @@
 package com.example.astroweather
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.android.volley.Request
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.example.astroweather.json_model.Root
 import com.google.gson.Gson
-import org.json.JSONException
-import org.json.JSONObject
+import java.util.*
 import kotlin.math.roundToInt
 
 class WeatherPage : Fragment() {
@@ -25,6 +20,9 @@ class WeatherPage : Fragment() {
     private var maxTemperature: TextView? = null
     private var feelsLikeTemperature: TextView? = null
     private var cityName: TextView? = null
+    private var imageWeather: ImageView? = null
+    private var weatherDesc: TextView? = null
+    private var airPressure: TextView? = null
 
     private lateinit var astroData: AstroData
     override fun onCreateView(
@@ -38,21 +36,6 @@ class WeatherPage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val weatherInfo = loadSharedPreferences()
         setAstroDataToTV(weatherInfo)
-//        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
-//        val latitude = sharedPreferences.getString(
-//            getString(R.string.lat_key),
-//            getString(R.string.latitude)
-//        )
-//        val longitude = sharedPreferences.getString(
-//            getString(R.string.long_key),
-//            getString(R.string.longitude)
-//        )
-//        astroData = AstroData()
-//        if (longitude != null && latitude != null) {
-//            astroData.updateLocation(latitude.toDouble(), longitude.toDouble())
-//            Log.i("Latitude", "${latitude.toDouble()}")
-//            Log.i("Longitude", "${longitude.toDouble()}")
-//        }
 
     }
 
@@ -66,88 +49,57 @@ class WeatherPage : Fragment() {
         super.onResume()
     }
 
-
     private fun setAstroDataToTV(weatherData: Root) {
         temperature = view?.findViewById(R.id.temperature) as TextView
         minTemperature = view?.findViewById(R.id.temp_min) as TextView
         maxTemperature = view?.findViewById(R.id.temp_max) as TextView
         cityName = view?.findViewById(R.id.location) as TextView
+        imageWeather = view?.findViewById(R.id.weather_icon) as ImageView
+        weatherDesc = view?.findViewById(R.id.weather_description) as TextView
+        airPressure = view?.findViewById(R.id.air_pressure) as TextView
 
-        temperature!!.text = String.format("%d°C", weatherData.current.temp.roundToInt())
-        maxTemperature!!.text = String.format("Max temp: %d°C", weatherData.daily[0].temp.max.roundToInt())
-        minTemperature!!.text = String.format("Min temp: %d°C", weatherData.daily[0].temp.min.roundToInt())
-        cityName!!.text = activity?.let { SharedPreferencesData.getString(it, "CITY") + " weather" }
+        val units: String = SharedPreferencesData.getString(context!!, "UNITS").toString()
+        if(units == "imperial") {
+            temperature!!.text = String.format("%d°F", weatherData.current.temp.roundToInt())
+            maxTemperature!!.text = String.format("Max temp: %d°F", weatherData.daily[0].temp.max.roundToInt())
+            minTemperature!!.text = String.format("Min temp: %d°F", weatherData.daily[0].temp.min.roundToInt())
+        }else if(units == "metric") {
+            temperature!!.text = String.format("%d°C", weatherData.current.temp.roundToInt())
+            maxTemperature!!.text = String.format("Max temp: %d°C", weatherData.daily[0].temp.max.roundToInt())
+            minTemperature!!.text = String.format("Min temp: %d°C", weatherData.daily[0].temp.min.roundToInt())
+        }
 
-
-//        view?.findViewById<TextView>(R.id.sunrise)?.text =
-//            astroData.getTimeToSting(astroCalculator.sunInfo.sunrise)
-//        view?.findViewById<TextView>(R.id.sunset)?.text =
-//            astroData.getTimeToSting(astroCalculator.sunInfo.sunset)
-//        view?.findViewById<TextView>(R.id.civil_dawn)?.text =
-//            astroData.getTimeToSting(astroCalculator.sunInfo.twilightMorning)
-//        view?.findViewById<TextView>(R.id.civil_twilight)?.text =
-//            astroData.getTimeToSting(astroCalculator.sunInfo.twilightEvening)
-//
-//        view?.findViewById<TextView>(R.id.sunrise_azimuth)?.text =
-//            astroData.getAzimuthToString(astroCalculator.sunInfo.azimuthRise)
-//        view?.findViewById<TextView>(R.id.sunset_azimuth)?.text =
-//            astroData.getAzimuthToString(astroCalculator.sunInfo.azimuthSet)
-//
-//        view?.findViewById<TextView>(R.id.latitude)?.text =
-//            latitude?.let { astroData.getLatitudeToString(it) }
-//        view?.findViewById<TextView>(R.id.longitude)?.text =
-//            longitude?.let { astroData.getLongitudeToString(it) }
-//
-//        view?.findViewById<TextView>(R.id.current_date)?.text =
-//            astroData.getDateToString(astroCalculator.dateTime)
-    }
-
-    private fun getWeatherData() {
-        val API_KEY: String = getString(R.string.openWeatherMapAPI)
-        val CITY: String = getString(R.string.city)
-        val URL = "https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=$API_KEY&units=metric"
-        val queue = Volley.newRequestQueue(context);
-        val jsonObjectRequest = JsonObjectRequest(
-            Request.Method.GET, URL, null,
-            { response ->
-                try {
-                    val jsonObjMain: JSONObject = response.getJSONObject("main")
-                    val jsonObjSys: JSONObject = response.getJSONObject("sys")
-                    val city: String = response.getString("name")
-                    val temperature: Int = jsonObjMain.getInt("temp")
-                    val temperatureMin: Int = jsonObjMain.getInt("temp_min")
-                    val temperatureMax: Int = jsonObjMain.getInt("temp_max")
-                    val country: String = jsonObjSys.getString("country")
-
-                    val temperatureMinString = "Min temp $temperatureMin°C"
-                    val temperatureMaxString = "max temp $temperatureMax°C"
-                    view?.findViewById<TextView>(R.id.temperature)?.text =
-                        temperature.toString().plus("°C")
-                    view?.findViewById<TextView>(R.id.temp_min)?.text =
-                        temperatureMinString
-                    view?.findViewById<TextView>(R.id.temp_max)?.text =
-                        temperatureMaxString
-                    view?.findViewById<TextView>(R.id.location)?.text =
-                        city.plus(", ").plus(country)
-                    Log.i("Api message", temperature.toString().plus("°C"))
-                } catch (e: JSONException) {
-                    Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
-                }
-            },
-            { error ->
-                Toast.makeText(context, error.toString(), Toast.LENGTH_SHORT).show()
-            }
-        )
-        queue.add(jsonObjectRequest)
+        weatherDesc!!.text = weatherData.current.weather[0].description.capitalize(Locale.ENGLISH)
+        airPressure!!.text = String.format("Air pressure: %d hPa", weatherData.current.pressure)
+        cityName!!.text = activity?.let { SharedPreferencesData.getString(context!!, "CITY_NAME") }
+        when(weatherData.current.weather[0].icon){
+            "01d" -> imageWeather?.setImageResource(R.drawable.ic_01d)
+            "01n" -> imageWeather?.setImageResource(R.drawable.ic_01n)
+            "02d" -> imageWeather?.setImageResource(R.drawable.ic_02d)
+            "02n" -> imageWeather?.setImageResource(R.drawable.ic_02n)
+            "03d" -> imageWeather?.setImageResource(R.drawable.ic_03d)
+            "03n" -> imageWeather?.setImageResource(R.drawable.ic_03n)
+            "04d" -> imageWeather?.setImageResource(R.drawable.ic_04d)
+            "04n" -> imageWeather?.setImageResource(R.drawable.ic_04n)
+            "09d" -> imageWeather?.setImageResource(R.drawable.ic_09d)
+            "09n" -> imageWeather?.setImageResource(R.drawable.ic_09n)
+            "10d" -> imageWeather?.setImageResource(R.drawable.ic_10d)
+            "10n" -> imageWeather?.setImageResource(R.drawable.ic_10n)
+            "11d" -> imageWeather?.setImageResource(R.drawable.ic_11d)
+            "11n" -> imageWeather?.setImageResource(R.drawable.ic_11n)
+            "13d" -> imageWeather?.setImageResource(R.drawable.ic_13d)
+            "13n" -> imageWeather?.setImageResource(R.drawable.ic_13n)
+            "50d" -> imageWeather?.setImageResource(R.drawable.ic_50d)
+            "50n" -> imageWeather?.setImageResource(R.drawable.ic_50n)
+        }
+        Log.i("WeatherPage city", SharedPreferencesData.getString(context!!, "CITY_NAME").toString())
     }
 
     private fun loadSharedPreferences(): Root {
         val weatherInfoJson = activity?.let {
             SharedPreferencesData.getString(it,"WEATHER_INFO")
         }
-        cityName?.text = activity?.let {
-            SharedPreferencesData.getString(it,"CITY_NAME")
-        }
+
         val gson = Gson()
         return gson.fromJson(weatherInfoJson, Root::class.java)
     }
